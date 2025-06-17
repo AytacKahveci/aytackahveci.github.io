@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #6b7280;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4b5563;
+        }
+
+
+        /* Hidden state for elements */
+        .hidden {
+            display: none;
+        }
+
+        /* Typing Animation for Hero Title */
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid orange; /* The typwriter cursor */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .05em;
+            line-height: 1.2;
+            animation: 
+                typing 0.5s steps(20, end) forwards, /* Typing effect */
+                blink-caret .75s step-end infinite; /* Blinking cursor */
+            width: 0; /* Start with zero width to reveal text gradually */
+        }
+
+        /* The typing animation effect */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 13ch }
+        }
+
+        /* The typewriter cursor effect */
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+
+        /* Navigation bar scroll animation */
+        .navbar-hidden {
+            transform: translateY(-100%);
+        }
+        .navbar-visible {
+            transform: translateY(0);
+        }
+        .navbar-transition {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Go to Top button */
+        #go-to-top-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        #go-to-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="antialiased leading-normal tracking-tight">
+
+    <!-- Navigation Bar -->
+    <!-- Navigation Bar -->
+    <nav id="main-navbar" class="bg-gray-800 p-4 shadow-lg fixed top-0 w-full z-50 navbar-transition navbar-visible">
+        <div class="container mx-auto flex justify-between items-center relative">
+            <!-- Brand Name -->
+            <a href="#" class="text-white text-2xl font-bold rounded-md px-3 py-2 hover:bg-gray-700 transition duration-300">Aytaç Kahveci</a>
+            
+            <!-- Hamburger Menu Button (visible on mobile, hidden on md and up) -->
+            <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white focus:outline-none focus:text-white">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+
+            <!-- Navigation Links (hidden on mobile, flex on md and up) -->
+            <div id="nav-links-container" class="hidden md:flex md:flex-row md:static md:w-auto md:space-x-4 absolute top-full left-0 w-full bg-gray-800 pb-4 md:pb-0 md:bg-transparent">
+                <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">About</a>
+                <a href="#skills" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Skills</a>
+                <a href="#projects" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Projects</a>
+                <a href="#certificates" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Certificates</a>
+                <a href="#publications" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Publications</a>
+                <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition duration-300">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-20 px-4 text-center shadow-lg pt-40 sm:pt-48 md:pt-64"> <!-- Responsive padding-top -->
+        <div class="container mx-auto">
+            <div class="typewriter">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4 rounded-lg animate-fade-in-down max-w-full text-wrap">Hello, I'm Aytaç</h1>
+            </div>
+            <p class="text-xl md:text-2xl mb-8 rounded-lg animate-fade-in-up">Driving innovation through code, architecture, and product thinking.</p>
+            <a href="#projects" class="bg-white text-indigo-700 hover:bg-indigo-100 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">View My Work</a>
+        </div>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-lg animate-fade-in-left">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">About Me</h2>
+        <div class="flex flex-col md:flex-row items-center md:space-x-10">
+            <div class="w-full md:w-1/3 flex justify-center mb-8 md:mb-0">
+                <!-- Placeholder for profile picture -->
+                <img src="./assets/ProfilePicture.png" alt="Profile Picture" class="rounded-full shadow-lg border-4 border-indigo-200 w-[250px] h-[250px]">
+            </div>
+            <div class="w-full md:w-2/3 text-lg leading-relaxed text-gray-700">
+                <p class="mb-4">
+                    Hello! I'm Aytaç, a dedicated Senior Software Engineer with a strong passion for embedded development, backend systems, robotics, data science, and software design. My journey in technology began with a deep interest in solving complex problems in the robotics domain. 
+                    I then contributed to cutting-edge solutions in the automotive industry, and I’m currently applying my expertise to advance wind energy technologies through code.
+                </p>
+                <p class="mb-4">
+                    Over the years, I’ve worked on diverse projects from building responsive web applications to developing scalable backend services.
+                    These experiences have sharpened my ability to see both the big picture and the technical details a perspective I continue to refine as I move toward broader responsibilities in Solution Architecture, 
+                    Product Ownership, and advanced Software Engineering.
+                </p>
+                <p>
+                    I’m currently exploring new opportunities where I can bring value as a Solution Architect, Product Owner, or Senior Software Engineer. 
+                    I excel at problem-solving, collaborative teamwork, and performance optimization. Let’s connect and build something amazing together!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-lg animate-fade-in-right">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">My Skills</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+              <i class="fas fa-robot text-5xl text-blue-500 mb-4"></i>
+              <h3 class="text-center text-xl font-semibold mb-2 text-gray-800">Robotics</h3>
+              <p class="text-center text-gray-600">ROS, AUTOSAR, Motion Planning, TensorFlow, OpenCV, PCL, CMake, Bazel</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <i class="fas fa-code text-5xl text-blue-500 mb-4"></i>
+                <h3 class="text-center text-xl font-semibold mb-2 text-gray-800">Front-End Development</h3>
+                <p class="text-center text-gray-600">HTML, CSS, JavaScript, React, Tailwind CSS</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <i class="fas fa-database text-5xl text-green-500 mb-4"></i>
+                <h3 class="text-center text-xl font-semibold mb-2 text-gray-800">Back-End Development</h3>
+                <p class="text-center text-gray-600">C++, Python (Flask), Node.js, PostgreSQL, MySQL, Redis</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <i class="fas fa-cloud text-5xl text-purple-500 mb-4"></i>
+                <h3 class="text-center text-xl font-semibold mb-2 text-gray-800">Cloud & DevOps</h3>
+                <p class="text-center text-gray-600">AWS, Docker, Kubernetes, Terraform, Git, CI/CD</p>
+            </div>
+
+            <div class="flex flex-col items-center p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <i class="fas fa-sitemap text-5xl text-yellow-500 mb-4"></i>
+                <h3 class="text-center text-xl font-semibold mb-2 text-gray-800">Architecture & Leadership</h3>
+                <p class="text-center text-gray-600">System Design, UML, Agile/Scrum, Product Ownership, Stakeholder Communication</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-lg animate-fade-in-up">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">My Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+              <img src="./assets/WebServerOnSBC.png" alt="Web Application Development on Single Board Computer" class="w-full h-48 object-cover rounded-t-xl">
+              <div class="p-6">
+                  <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Web Application Development on Single Board Computer</h3>
+                  <p class="text-gray-700 mb-4">
+                    I delivered an end-to-end web-based control and monitoring solution for a medical device, fully hosted on an embedded single board computer (SBC). 
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python (Flask)</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">HTML/CSS/JS</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MySQL</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Embedded Linux</span>
+                  </div>
+                  <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                  </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/WebServerOnSBC.png" alt="Web Application Development on Single Board Computer" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I delivered an end-to-end web-based control and monitoring solution for a medical device, fully hosted on an embedded single board computer (SBC). 
+                    The system provided a responsive user interface for device interaction, data monitoring, and session management—all running locally without reliance on external infrastructure.
+                  </p>
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Platform and Deployment:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Set up a LAMP (Linux, Apache, MySQL, Python) stack on an embedded SBC.</li>
+                      <li>Tuned system resources and services for reliable operation under embedded constraints (limited CPU/RAM and power).</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Backend Server:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Implemented the backend using Python Flask, exposing RESTful APIs to control the medical device.</li>
+                      <li>Backend handled:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Device command routing (start/stop experiments)</li>
+                          <li>Experiment session tracking</li>
+                          <li>Database interactions for logging and statistics</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Frontend GUI:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Developed a web-based GUI using HTML/CSS/JavaScript for responsive design and user interactivity.</li>
+                      <li>GUI features included:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>User authentication and session management</li>
+                          <li>Live control buttons for experiment start/stop</li>
+                          <li>Statistics dashboard showing results and visual summaries (e.g., charts, status logs)</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Data Storage and Analysis:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Stored user credentials, session logs, and experiment data in a MySQL database on the SBC.</li>
+                      <li>Implemented basic analytics to compute success rates, duration stats, and device runtime metrics.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Security & Access Control:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Enabled user authentication using hashed passwords and session tokens.</li>
+                      <li>Restricted critical operations to authorized users and implemented timeout-based auto logout.</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <p class="text-gray-700 mb-2"><strong>📦 Resource-Constrained Environment:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Running a full web server stack on a low-power SBC with limited memory and CPU.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Optimized Apache and MySQL configurations (e.g., reduced worker threads, query caching) and offloaded non-critical tasks using cron jobs or lightweight Python scripts.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🔌 Real-Time Device Communication:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Reliable and safe interaction with the medical device from a web-based command interface.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Created a secure Python service layer that interfaced directly with the device’s hardware interface (via GPIO, serial, or USB), ensuring real-time safety constraints were met.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🔐 User Management and Security:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Ensuring secure login and permission enforcement in a local network environment.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Implemented user role management, secure password hashing, and basic CSRF protections in forms.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>📊 User-Friendly UI on Embedded Host:</strong></p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Challenge:</strong> Ensuring smooth and responsive GUI performance over the device’s IP, even with limited processing power.</p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Used lightweight frontend frameworks and minimal JS libraries to maintain a fast load time and responsive interaction, even on mobile browsers.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/VisualServoing.png" alt="End-to-End Solution for Visual Servoing with KUKA Robot" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">End-to-End Solution for Visual Servoing with KUKA Robot</h3>
+                    <p class="text-gray-700 mb-4">
+                        I designed and implemented a complete visual servoing system for a KUKA industrial robot, enabling it to perceive, track, and interact with dynamic objects in real time.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">ROS</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">OpenCV</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MoveIt!</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">QT</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                        Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                    <img src="./assets/VisualServoing.png" alt="End-to-End Solution for Visual Servoing with KUKA Robot" class="w-full h-auto object-cover mb-4 rounded-md">
+                    <p class="text-gray-700 mb-2">
+                        I designed and implemented a complete visual servoing system for a KUKA industrial robot, enabling it to perceive, track, and interact with dynamic objects in real time. 
+                        The system combined vision-based object tracking, motion control, and user interaction components to deliver a responsive and intelligent robotic behavior loop.
+                    </p>
+                    
+                    <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                    <p class="text-gray-700 mb-2"><strong>Computer Vision and High-Level Control:</strong></p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                        <li>Developed the object detection and tracking pipeline in Python, using:</li>
+                        <ul class="list-circle list-inside text-gray-700 ml-8">
+                            <li>Custom image processing techniques and filters for object localization.</li>
+                            <li>A Kalman filter-based multi-frame object tracker for temporal consistency and noise rejection.</li>
+                        </ul>
+                        <li>High-level robot control logic, including target pose computation and movement sequencing, was implemented in Python and integrated with the ROS ecosystem.</li>
+                    </ul>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>Robot Integration Layer:</strong></p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                        <li>Implemented a custom ROS-compatible KUKA robot driver in C++, acting as a middleware between ROS nodes and the KUKA internal robot controller via real-time TCP/IP or FRI (Fast Robot Interface).</li>
+                        <li>Supported streaming of joint states, trajectory commands, and safety signals with deterministic latency.</li>
+                    </ul>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>Visual Servoing Loop:</strong></p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                        <li>Real-time camera input processed to detect the object pose in image space.</li>
+                        <li>Object coordinates were transformed into robot base frame using calibrated camera-robot transform.</li>
+                        <li>Robot motion goals were calculated dynamically and sent to the KUKA controller via ROS action interfaces.</li>
+                    </ul>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>Frontend Interface:</strong></p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                        <li>Built a Qt-based GUI for visualizing:</li>
+                        <ul class="list-circle list-inside text-gray-700 ml-8">
+                            <li>Live camera feed with detection/tracking overlays.</li>
+                            <li>Real-time joint states and robot pose.</li>
+                            <li>Manual override controls and servoing state feedback.</li>
+                        </ul>
+                        <li>The GUI communicated with ROS nodes over a websocket or ROS bridge.</li>
+                    </ul>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>System Integration & Calibration:</strong></p>
+                    <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                        <li>Calibrated the camera-to-robot frame using hand-eye calibration techniques.</li>
+                        <li>Verified visual servoing accuracy using test patterns and repeated tasks under varying object positions and lighting.</li>
+                    </ul>
+
+                    <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                    <p class="text-gray-700 mb-2"><strong>📡 Real-Time Object Tracking and Actuation:</strong></p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Vision processing needed to keep up with real-time robot feedback to ensure stable servoing.</p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Optimized the Kalman-based tracking loop and ensured synchronization with ROS time; implemented rate-limited command publishers to avoid command saturation.</p>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>🤝 Bridging KUKA Internal Driver with ROS:</strong></p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> The proprietary KUKA driver did not natively support ROS.</p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Built a C++ adapter layer that parsed and reformatted low-level KUKA feedback (joint positions, states) and published it as standard ROS messages. Control commands were translated back to the expected KUKA driver protocol.</p>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>🧭 Coordinate Transformations:</strong></p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Converting image-based detections to actionable robot frame targets.</p>
+                    <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Implemented robust transformation logic using ROS tf2 and dynamic reconfiguration of the camera extrinsics. Pose estimation error was minimized through pixel-to-world calibration.</p>
+
+                    <p class="text-gray-700 mb-2 mt-4"><strong>🖥 Usability and Operator Control:</strong></p>
+                    <p class="text-gray-700 mb-4 ml-4"><strong>Challenge:</strong> Need for monitoring and debugging during development and operation.</p>
+                    <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Designed an intuitive Qt GUI that allowed toggling between manual and auto modes, displaying real-time feedback, and logging debug info for replay.</p>
+                </div>
+              </div>
+              
+              <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/MobileRobotLowLevelController.png" alt="Autonomous Mobile Robot Low-Level Controller" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Autonomous Mobile Robot Low-Level Controller</h3>
+                    <p class="text-gray-700 mb-4">
+                        I developed a low-level motion controller for an autonomous mobile robot to manage precise motor control, odometry feedback, and real-time command execution.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">ROS</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">TCP/IP</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Linux</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                        Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/MobileRobotLowLevelController.png" alt="Autonomous Mobile Robot Low-Level Controller" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I developed a low-level motion controller for an autonomous mobile robot to manage precise motor control, odometry feedback, and real-time command execution.
+                    The controller acted as the bridge between high-level navigation systems and physical motor drivers, ensuring safe and accurate motion execution.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Platform:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Developed entirely in C++ under a Linux environment with strict real-time performance considerations.</li>
+                      <li>The controller was implemented as a ROS (Robot Operating System) node, enabling modular integration with upstream navigation and localization systems.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Communication:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>TCP/IP socket communication was used for interfacing with the robot’s embedded motor driver board.</li>
+                      <li>The protocol supported high-frequency bidirectional messaging for encoder feedback, motion commands, and fault reporting.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Control Loop:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Implemented a real-time control loop (~100Hz) that:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Received target velocities via ROS cmd_vel topics</li>
+                          <li>Translated velocity commands into wheel-level PWM or encoder commands</li>
+                          <li>Parsed encoder data to compute odometry and published it to ROS as odom</li>
+                      </ul>
+                      <li>Implemented PID control logic for smooth acceleration, deceleration, and heading correction.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Diagnostics and Safety:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Included watchdog timers and command timeouts to prevent runaway behavior.</li>
+                      <li>Implemented overcurrent and overtemperature detection based on motor feedback.</li>
+                      <li>Provided emergency stop and fault recovery service endpoints through ROS.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Integration and Tools:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Integrated with RViz for real-time visualization of odometry and motion vectors.</li>
+                      <li>Custom Python-based test harness was developed for stress testing the controller over TCP/IP.</li>
+                      <li>Unit-tested with GTest, and deployment was done using CMake and ROS launch files.</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <p class="text-gray-700 mb-2"><strong>⚡ Low Latency Communication:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Communication with the motor driver had to be deterministic and fast to maintain stable control.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Designed a lightweight binary protocol over TCP, minimized serialization overhead, and used non-blocking sockets with epoll for efficient I/O under Linux.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>📏 Accurate Odometry and Drift Reduction:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Wheel slippage and encoder noise affected odometry precision.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Implemented filtering and rolling average smoothing for encoder deltas; allowed real-time calibration through ROS services for wheelbase and ticks-per-meter.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🔁 Synchronization with ROS Time and Frames:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Maintaining timestamp alignment with other subsystems (e.g., localization).</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Used ros::Time::now() consistently for odometry messages and adhered to the TF transform tree (base_link → odom) for proper integration.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🛑 Safety and Fault Handling:</strong></p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Challenge:</strong> Ensuring that faults (e.g., lost packets, stalled motors) didn’t propagate upstream.</p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Added a state machine inside the controller that reported OK, FAULT, and EMERGENCY_STOP states, each with specific recovery behavior and ROS status topics.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/MobileRobotObjectPoseEstimation.png" alt="Autonomous Mobile Robot Object Pose Estimation" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Autonomous Mobile Robot Object Pose Estimation</h3>
+                    <p class="text-gray-700 mb-4">
+                        I developed a robust object pose estimation pipeline for an autonomous mobile robot, enabling it to perceive and track objects in 3D space using real-time point cloud data.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">PCL</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">ROS</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">RViz</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gazebo</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Linux</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                        Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/MobileRobotObjectPoseEstimation.png" alt="Autonomous Mobile Robot Object Pose Estimation" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I developed a robust object pose estimation pipeline for an autonomous mobile robot, enabling it to perceive and track objects in 3D space using real-time point cloud data.
+                    The system enhanced raw sensor input, filtered noise, and estimated object poses with temporal consistency, forming a crucial part of the robot’s perception and manipulation stack.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Sensor Input and Processing:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Input was acquired from a 3D LiDAR sensor, delivered as Point Cloud Data (PCD).</li>
+                      <li>Implemented custom point cloud preprocessing filters in C++ using the Point Cloud Library (PCL):</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Voxel Grid Filter to downsample data</li>
+                          <li>Statistical Outlier Removal to eliminate noisy measurements</li>
+                          <li>PassThrough Filter to crop to the region of interest</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Object Detection and Pose Estimation:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Extracted object clusters using Euclidean Cluster Extraction.</li>
+                      <li>Calculated bounding boxes, centroids, and principal axes for detected objects.</li>
+                      <li>Implemented a Kalman Filter in C++ and Python to fuse current and historical observations for smoother and more reliable pose estimation.</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Filter tracked 6-DoF pose: (x, y, z, roll, pitch, yaw)</li>
+                          <li>Managed uncertainty using measurement and process noise covariance tuning</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>System Integration:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Pose estimation pipeline was integrated into a ROS (Robot Operating System) node, with real-time publishing of object poses.</li>
+                      <li>Data was synchronized and visualized in RViz, with support for replay via ROS bag files for debugging and testing.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Post-processing and Smoothing:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Applied temporal smoothing and outlier rejection across frames using a pose consistency checker to handle dynamic environments and occlusion cases.</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <p class="text-gray-700 mb-2"><strong>📉 Noisy Point Cloud Data:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Raw point cloud data had high noise, reflections, and artifacts.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Designed a modular filter stack (voxel grid + outlier removal + ROI cropping) that could be tuned per environment and object size.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>⏱️ Real-Time Constraints:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Processing high-density point clouds without lagging downstream motion planning modules.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Used multi-threading and batch downsampling techniques; computation-heavy stages (clustering, filtering) were moved to C++ with ROS async callbacks.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🔄 Pose Drift and Identity Confusion:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> In dynamic environments, the object ID and pose tracking could drift or jump.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Kalman Filter with identity association logic based on object size, motion pattern, and spatial proximity. Used Mahalanobis distance for matching predictions to measurements.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>📦 Sensor Fusion Support (Future-Ready):</strong></p>
+                  <p class="text-gray-700 mb-4 ml-4">Although not implemented in full, the architecture was designed to allow future fusion of vision-based pose detection with point cloud estimations using extended Kalman filters.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/MobileRobotDocking.png" alt="Autonomous Mobile Robot Precise Docking System" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Autonomous Mobile Robot Precise Docking System</h3>
+                    <p class="text-gray-700 mb-4">
+                        I designed and implemented a high-precision docking system for an autonomous mobile robot to enable consistent and repeatable alignment with charging stations or loading platforms. 
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">ROS</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Gazebo</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kalman Filter</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Path Planning</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Trajectory Planning</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Closed Loop Control</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Linux</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                        Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/MobileRobotDocking.png" alt="Autonomous Mobile Robot Precise Docking System" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I designed and implemented a high-precision docking system for an autonomous mobile robot to enable consistent and repeatable alignment with charging stations or loading platforms. 
+                    The system leveraged feedback control and real-time pose updates to achieve centimeter-level accuracy under varying environmental conditions.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Control Algorithm:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Implemented a PID-based motion controller in C++, designed to minimize the robot's positional and angular error relative to the docking target.</li>
+                      <li>Controller supported both linear and angular velocity adjustments, with dynamic PID parameter tuning for smooth deceleration as the robot approached the target.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Target Pose Acquisition:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Docking targets were defined as fixed Pose2D or Pose3D coordinates relative to the robot’s global map.</li>
+                      <li>Final docking pose was broadcast as a ROS static transform or dynamically estimated from markers.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Integration with Navigation Stack:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Docking procedure was integrated as a stateful ROS node that:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Took control from the high-level planner upon reaching the docking zone</li>
+                          <li>Switched from global navigation to fine-grained pose alignment</li>
+                          <li>Monitored docking success using position thresholds and timeout logic</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Feedback and Safety:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Position feedback was obtained from odometry and localization (e.g., AMCL or EKF fused sensors).</li>
+                      <li>Safety mechanisms were implemented:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Timeout and maximum attempt limits</li>
+                          <li>Emergency stop triggers on error spikes or sensor failure</li>
+                      </ul>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Simulation & Testing:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>Extensive validation was conducted in Gazebo simulation and real robot deployments.</li>
+                      <li>ROS bag data was recorded and replayed to test docking accuracy, repeatability, and recovery from partial failures.</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <p class="text-gray-700 mb-2"><strong>🎯 Accuracy and Stability Near Target:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Robot tended to overshoot or oscillate as it approached the docking point.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Tuned PID controller with variable gain scaling near the target. Introduced a velocity clamp and arrival window threshold to define "docked" status with precision.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>🔁 Transition from Global to Local Control:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Switching from global navigation to docking logic required a clean handover without trajectory discontinuity.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Created a controller activation threshold that smoothly transitioned control authority based on distance to docking goal.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>⏱️ Timing and Feedback Latency:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Delays in sensor feedback could cause delayed adjustments and degrade docking performance.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Used a high-frequency control loop (~50–100Hz) and synchronized pose updates with ROS TF and odometry timestamps.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>⚠️ Safety and Fault Handling:</strong></p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Challenge:</strong> Misalignment or false success detection due to sensor drift or mechanical noise.</p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Implemented a multi-condition success validator, including position error, angle error, and motion stability check over a short window.</p>
+                </div>
+              </div>
+
+              <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/MultiRobotTaskDistribution.png" alt="Multi Robot Fleet Task Management" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Multi Robot Fleet Task Management and Distribution</h3>
+                    <p class="text-gray-700 mb-4">
+                        I designed an end-to-end architecture for a task distribution system to manage a fleet of autonomous mobile robots(AMRs) in a warehouse.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MQTT</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">RabbitMQ</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MySQL</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">React</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Flask</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Linux</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                        Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/MultiRobotTaskDistribution.png" alt="Multi Robot Fleet Task Management" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I designed an end-to-end architecture for a task distribution system to manage a fleet of autonomous mobile robots(AMRs) in a warehouse.
+                    The goal was to assign and track tasks efficiently as the fleet scaled dynamically.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li><strong>Data Ingestion:</strong> MQTT for robot communication and RabbitMQ for internal task orchestration.</li>
+                      <li><strong>Processing:</strong> Python multi-threaded services handling task logic and robot status.</li>
+                      <li><strong>Storage:</strong> MySQL for task state persistence and history.</li>
+                      <li><strong>Frontend:</strong> React dashboard communicating via REST APIs exposed by a Flask backend.</li>
+                      <li><strong>CI/CD:</strong> GitHub Actions + Kubernetes for deployment and scalability.</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li><strong>Latency:</strong> We needed near-real-time communication between task servers and robots. MQTT was used for low-latency message delivery, and Flask API endpoints were optimized for speed.</li>
+                      <li><strong>Scalability:</strong> Since robots could dynamically join/leave, we containerized each robot service endpoint and used Kubernetes to scale task processors horizontally.</li>
+                      <li><strong>Data Quality:</strong> To ensure no task was lost or left unfulfilled, we used RabbitMQ’s dead-letter queues and implemented retry logic with task acknowledgment and expiry strategies.</li>
+                  </ul>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+                <img src="./assets/MultiRobotTrafficManagement.png" alt="Multi Robot Fleet Traffic Management" class="w-full h-48 object-cover rounded-t-xl">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Multi Robot Fleet Traffic Management</h3>
+                    <p class="text-gray-700 mb-4">
+                        I designed and implemented a traffic management system for coordinating autonomous mobile robots (AMRs) in a shared environment, such as a smart warehouse or industrial floor.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MQTT</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">ZeroMQ</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">MySQL</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Redis</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">React</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Flask</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                    </div>
+                    <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                    </button>
+                </div>
+
+                <!-- Hidden detailed content -->
+                <div class="project-details-content hidden">
+                  <img src="./assets/MultiRobotTrafficManagement.png" alt="Multi Robot Fleet Traffic Management" class="w-full h-auto object-cover mb-4 rounded-md">
+                  <p class="text-gray-700 mb-2">
+                    I designed and implemented a traffic management system for coordinating autonomous mobile robots (AMRs) in a shared environment, such as a smart warehouse 
+                    or industrial floor. The objective was to ensure collision-free navigation, optimal path allocation, and real-time conflict resolution across multiple robots 
+                    operating simultaneously.
+                  </p>
+                  
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Communication Layer:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>MQTT was used for real-time bidirectional communication between robots and the central traffic controller.</li>
+                      <li>ZeroMQ was used for high-speed inter-service communication for path planning, conflict resolution, and logging modules.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Traffic Coordination Logic:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>A centralized Python-based controller using multithreading and async IO handled:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Robot position updates</li>
+                          <li>Traffic zone reservations (virtual lanes, intersections)</li>
+                          <li>Deadlock prevention using graph-based dependency resolution</li>
+                      </ul>
+                      <li>A* and Dijkstra's algorithms were used for dynamic route planning based on live robot positions and blocked paths.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Storage:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>MySQL stored robot telemetry, traffic zone states, and event logs.</li>
+                      <li>Redis was used as an in-memory store for fast access to current robot positions and traffic locks.</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Frontend:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>A React-based live dashboard visualized:</li>
+                      <ul class="list-circle list-inside text-gray-700 ml-8">
+                          <li>Real-time robot positions on a map</li>
+                          <li>Traffic heatmaps</li>
+                          <li>Active conflicts and resolutions</li>
+                      </ul>
+                      <li>Backend exposed RESTful APIs via Flask</li>
+                  </ul>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>CI/CD and Deployment:</strong></p>
+                  <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                      <li>GitHub Actions for CI, automated testing, and container builds</li>
+                      <li>Docker + Kubernetes for orchestrating services like route planner, conflict resolver, and monitor</li>
+                      <li>Prometheus + Grafana for monitoring robot traffic KPIs (average speed, congestion zones, etc.)</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                  <p class="text-gray-700 mb-2"><strong>Collision & Deadlock Prevention:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Prevent robots from entering the same traffic zone simultaneously.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Implemented a zone-based reservation system with lease timeouts and a priority queue for contested zones. Robots reserve zones in advance before movement and renew as they proceed.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Real-time Responsiveness:</strong></p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Position updates and route changes needed to be processed under 200ms.</p>
+                  <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Used async MQTT clients, batching updates, and event-driven scheduling to reduce processing overhead.</p>
+
+                  <p class="text-gray-700 mb-2 mt-4"><strong>Debugging and Monitoring:</strong></p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Challenge:</strong> Diagnosing traffic jams or missed reservations required insight into real-time decisions.</p>
+                  <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Built a trace logger for each robot’s traffic decisions and visualized them on the dashboard. Grafana alerts were configured for high contention zones or increased deadlocks.</p>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+              <img src="./assets/MapProvisioning.png" alt="Map Provisioning for Autonomous Vehicle" class="w-full h-48 object-cover rounded-t-xl">
+              <div class="p-6">
+                  <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Map Provisioning for Autonomous Vehicle</h3>
+                  <p class="text-gray-700 mb-4">
+                    I contributed a high-performance map provisioning module to parse, structure, and deliver road topology data to the autonomous vehicle control stack.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Adaptive AUTOSAR</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">NDS</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">SQlite</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">QEMU</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">QNX OS</span>
+                  </div>
+                  <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-center cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                  </button>
+              </div>
+              <!-- Hidden detailed content -->
+              <div class="project-details-content hidden">
+                <img src="./assets/MapProvisioning.png" alt="Map Provisioning for Autonomous Vehicle" class="w-full h-auto object-cover mb-4 rounded-md">
+                <p class="text-gray-700 mb-2">I developed a high-performance map provisioning module to parse, structure, and deliver road topology data to the autonomous vehicle control stack. The system processed NDS (Navigation Data Standard) map data received from a remote service, constructed detailed road network models (e.g., links, lanes, and intersections), and supplied them in real time to downstream motion planning and localization components.</p>
+                
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture:</h4>
+                <p class="text-gray-700 mb-2"><strong>Platform:</strong> Implemented in C++ under QNX OS with strict real-time constraints and safety requirements.</p>
+                <p class="text-700 mb-2">Integrated into the Adaptive AUTOSAR framework as an ARA::COM service, enabling modular, reusable, and safety-compliant deployment.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Data Ingestion:</strong> NDS map data was received over a vehicle communication bus SOME/IP from an external navigation provider.</p>
+                <p class="text-gray-700 mb-2">Map tiles and segment data were parsed incrementally to support streaming behavior and low memory footprint.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Map Parsing and Structuring:</strong> Implemented a custom map parser that decoded NDS binary payloads into structured internal representations:</p>
+                <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                    <li><strong>Links:</strong> Represented road segments, with attributes such as geometry, speed limits, and directionality</li>
+                    <li><strong>Lanes:</strong> Included lane markings, connectivity, type (e.g., drivable, restricted), and hierarchy</li>
+                    <li><strong>Intersections & Lane Connections:</strong> Constructed topological relationships used by behavior planning modules</li>
+                </ul>
+                <p class="text-gray-700 mb-2">Maintained a spatial index for fast querying of map elements based on vehicle position.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Integration with Control Stack:</strong> Exposed structured map data as Adaptive AUTOSAR service interfaces to consumers like:</p>
+                <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                    <li>Trajectory planners</li>
+                    <li>Localization (e.g., map-matching)</li>
+                    <li>Traffic rule engines</li>
+                </ul>
+                <p class="text-gray-700 mb-2">Implemented change notifications and region-based data provisioning to reduce bandwidth and CPU usage.</p>
+
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                <p class="text-gray-700 mb-2"><strong>🧱 Parsing Complex Binary Formats:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> NDS data format is dense and highly nested, making parsing prone to errors and performance issues.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Designed a layered decoder architecture with robust error handling and buffer reuse to handle partial and malformed data gracefully.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>⏱️ Real-Time Performance on QNX:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Real-time deadlines under QNX with limited system resources.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Used lock-free data structures and pre-allocated memory pools to ensure deterministic behavior. Parsed map segments asynchronously and published results via ARA::COM with QoS settings.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>📍 Dynamic Region Loading:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Vehicle moved across regions, requiring dynamic map tile switching.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> Implemented a region manager that requested and loaded only nearby map segments based on vehicle GPS, supporting seamless handover between tiles.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>🔐 Safety and Certification Constraints:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Compliance with automotive safety standards under Adaptive AUTOSAR.</p>
+                <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> Followed MISRA-C++ guidelines, ensured service availability states matched the vehicle mode, and validated each map element with checksum and schema versioning.</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+              <img src="./assets/CertificateManagement.png" alt="Certificate Management and Map Validation" class="w-full h-48 object-cover rounded-t-xl">
+              <div class="p-6">
+                  <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Certificate Management and Map Validation</h3>
+                  <p class="text-gray-700 mb-4">
+                    I worked on a Certificate Management and Map Validation system, where the goal was to ensure the authenticity and integrity of signed map data 
+                    received from external sources.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">OpenSSL</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">PKI</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">RabbitMQ</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">PostgreSQL</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                  </div>
+                  <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-centers cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                  </button>
+              </div>
+              <!-- Hidden detailed content -->
+              <div class="project-details-content hidden">
+                <img src="./assets/CertificateManagement.png" alt="Certificate Management and Map Validation" class="w-full h-48 object-cover mb-4 rounded-md">
+                <p class="text-gray-700 mb-2">
+                  I worked on a Certificate Management and Map Validation system, where the goal was to ensure the authenticity and integrity of signed map data received from external sources. 
+                  The core of the project was to securely manage digital certificates, validate signed maps using these certificates, and build an architecture that could handle high-throughput 
+                  map verification in real-time scenarios.
+                </p>
+                
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture Overview:</h4>
+                <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                    <li><strong>Certificate Handling:</strong> Certificates were securely retrieved from a remote certificate authority over HTTPS.</li>
+                    <li><strong>Map Validation Service:</strong> A C++ based validation service that used cryptographic libraries (e.g., OpenSSL) to verify signatures on incoming map files.</li>
+                    <li><strong>Storage:</strong> Certificates and validation logs were stored in a secure PostgreSQL database.</li>
+                    <li><strong>Frontend:</strong> Admin dashboard for monitoring certificate status and validation outcomes.</li>
+                    <li><strong>Deployment:</strong> Containerized with Docker, orchestrated via Kubernetes, and CI/CD pipelines handled via GitHub Actions.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Key Challenges & Solutions:</h4>
+                <p class="text-gray-700 mb-2"><strong>🔐 Security & Trust Management:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> One of the biggest challenges was maintaining trust and preventing misuse of certificates.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> We implemented strict validation chains and expiration checks, and ensured that all certificate downloads and storage were encrypted at rest and in transit.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>⚙️ Real-Time Map Validation:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Another challenge was verifying large, signed maps in real-time without blocking the main processing pipeline.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> To solve this, we designed an asynchronous validation worker system using message queues (RabbitMQ), which allowed map validation to run in parallel and report back results without latency overhead.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Impact:</strong></p>
+                <p class="text-gray-700 mb-4">This architecture allowed the system to securely validate maps at scale, maintain a chain of trust, and provide real-time feedback on map authenticity. It also laid the groundwork for future integration with other secure vehicle or navigation systems where verified map data is critical.</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+              <img src="./assets/GraphQLBasedMapProvisoning.png" alt="GraphQL Based Map Information Provider Application" class="w-full h-48 object-cover rounded-t-xl">
+              <div class="p-6">
+                  <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">GraphQL Based Map Information Provider Application</h3>
+                  <p class="text-gray-700 mb-4">
+                    I worked on a GraphQL-based Map Information Provider Application, where we built a scalable backend service to serve NDS map data.
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">GraphQL</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">PostgreSQL/PostGIS</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Redis</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Docker</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                  </div>
+                  <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-centers cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                  </button>
+              </div>
+              <!-- Hidden detailed content -->
+              <div class="project-details-content hidden">
+                <img src="./assets/GraphQLBasedMapProvisoning.png" alt="GraphQL Based Map Information Provider Application" class="w-full h-48 object-cover mb-4 rounded-md">
+                <p class="text-gray-700 mb-2">
+                    I worked on a GraphQL-based Map Information Provider Application, where we built a scalable backend service to serve NDS map data — including elements like links, lanes, and boundaries — through a flexible and efficient GraphQL API.
+                </p>
+                
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture Overview:</h4>
+                <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                    <li><strong>Data Source:</strong> NDS format map data parsed and structured into internal models.</li>
+                    <li><strong>Backend:</strong> Python-based service exposing a GraphQL API for clients to query specific geographic information.</li>
+                    <li><strong>Data Access:</strong> Optimized spatial queries over PostgreSQL with PostGIS for geospatial indexing.</li>
+                    <li><strong>CI/CD:</strong> GitHub Actions + Kubernetes for deployment and scaling.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Challenges & Solutions:</h4>
+                <p class="text-gray-700 mb-2"><strong>🧭 Complex Data Structure:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> NDS map data is hierarchical and nested. To make it usable via GraphQL, we designed a custom schema that maps tightly to the underlying model while abstracting unnecessary complexity.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> We also implemented batch loaders and resolvers to avoid performance issues with deep or repetitive queries (N+1 problem).</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>📈 Scalability:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> We expected varying loads from multiple clients (e.g., in-vehicle systems or simulation tools).</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> So we containerized the GraphQL service and used Kubernetes to scale horizontally — meaning that more instances of the GraphQL server could be spun up on demand based on CPU or query latency metrics.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>⚡ Performance:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> Serving real-time geographic data required very fast responses.</p>
+                <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> We used PostGIS for geospatial lookups and cached hot areas of the map in Redis, significantly reducing response time for frequently accessed regions.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Impact:</strong></p>
+                <p class="text-gray-700 mb-4">The system allowed clients to flexibly query only the map elements they needed — reducing payload size and improving developer experience. The architecture also supported high availability and easy scalability, especially as we expanded the data coverage to new map tiles.</p>
+              </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1 project-card-item">
+              <img src="./assets/EventDrivenFramework.png" alt="Event Driven Framework development in Turbine Software Control" class="w-full h-48 object-cover rounded-t-xl">
+              <div class="p-6">
+                  <h3 class="text-2xl font-semibold mb-3 text-gray-800 project-title">Event Driven Framework development in Turbine Software Control</h3>
+                  <p class="text-gray-700 mb-4">
+                    I contributed to an event-driven framework where multiple system components communicated by sending and responding to events. 
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-4">
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">C++</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Python</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Boost Message Queue</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Kubernetes</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">Linux</span>
+                      <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full">QNX OS</span>
+                  </div>
+                  <button class="view-project-btn text-blue-600 hover:text-blue-800 font-medium inline-flex items-centers cursor-pointer">
+                      Details <i class="fas fa-plus-circle ml-2 text-sm"></i>
+                  </button>
+              </div>
+              <!-- Hidden detailed content -->
+              <div class="project-details-content hidden">
+                <img src="./assets/EventDrivenFramework.png" alt="Event Driven Framework development in Turbine Software Control" class="w-full h-auto object-cover mb-4 rounded-md">
+                <p class="text-gray-700 mb-2">
+                    I contributed to an event-driven framework where multiple system components communicated by sending and responding to events. 
+                    The main goal of the project was to decouple component interactions and ensure real-time responsiveness through a scalable and maintainable architecture.
+                </p>
+                
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Architecture Overview:</h4>
+                <ul class="list-disc list-inside text-gray-700 ml-4 mb-2">
+                    <li><strong>Event Bus:</strong> Boost Message Queue to handle asynchronous message passing between components.</li>
+                    <li><strong>Producers:</strong> Individual components publish events to the event bus when their internal state changes.</li>
+                    <li><strong>Consumers:</strong> Other components subscribe to relevant event types and update themselves accordingly.</li>
+                    <li><strong>Event Manager:</strong> A centralized C++ based framework responsible for routing events and managing subscription metadata.</li>
+                    <li><strong>Deployment:</strong> The system was containerized and deployed using Kubernetes, with horizontal scaling for high-load event routing.</li>
+                </ul>
+
+                <h4 class="text-xl font-semibold mb-2 text-gray-800 mt-4">Key Challenges & Solutions:</h4>
+                <p class="text-gray-700 mb-2"><strong>🔄 Loose Coupling and Dynamic Subscription Management:</strong></p>
+                <p class="text-700 mb-2 ml-4"><strong>Challenge:</strong> One major challenge was designing a flexible and dynamic subscription model that didn’t tightly couple components.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> We solved this by implementing a central event registry where components could register their interest in specific event types at runtime.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>⚙️ Event Ordering and Delivery Guarantees:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> We needed to ensure that event consumers processed messages in the correct order and without loss, especially for critical system events.</p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Solution:</strong> To address this, we used Boost Message Queue with persistent queues and message acknowledgements, and enforced ordering using per-component routing keys.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>📈 Scalability and Performance:</strong></p>
+                <p class="text-gray-700 mb-2 ml-4"><strong>Challenge:</strong> As the number of components and event types grew, routing efficiency became critical.</p>
+                <p class="text-gray-700 mb-4 ml-4"><strong>Solution:</strong> We scaled the event dispatcher horizontally using Kubernetes, and also introduced event batching and compression for high-frequency events to reduce latency.</p>
+
+                <p class="text-gray-700 mb-2 mt-4"><strong>Impact:</strong></p>
+                <p class="text-gray-700 mb-4">This architecture enabled highly decoupled, scalable, and reactive systems. Components could be added or removed with minimal impact, making it ideal for modular system design. It also significantly improved real-time responsiveness and fault tolerance, as failed consumers could recover from missed events via queue replay.</p>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-lg animate-fade-in-right">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">My Certificates</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">SAFe Product Owner</h3>
+                    <p class="text-gray-700 mb-4">Certification in Agile SAFe Product Owner - Wind University</p>
+                    <span class="text-sm text-gray-500">Issued: March 2025</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Project Management Course</h3>
+                    <p class="text-gray-700 mb-4">Project Management Course - Udemy</p>
+                    <span class="text-sm text-gray-500">Issued: January 2024</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Introduction to Cloud Computing on AWS</h3>
+                    <p class="text-gray-700 mb-4">Cloud Computing on AWS - DigitalCloud Training</p>
+                    <span class="text-sm text-gray-500">Issued: October 2023</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">ASPICE</h3>
+                    <p class="text-gray-700 mb-4">ASPICE certificate - Luxoft Training Center</p>
+                    <span class="text-sm text-gray-500">Issued: August 2022</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Automotive Software Standards</h3>
+                    <p class="text-gray-700 mb-4">Automotive Software Standards - Luxoft Training Center</p>
+                    <span class="text-sm text-gray-500">Issued: August 2022</span>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <div class="p-6">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">Practical Machine Learning with TensorFLow</h3>
+                    <p class="text-gray-700 mb-4">Practical Machine Learning with TensorFLow - Alison</p>
+                    <span class="text-sm text-gray-500">Issued: September 2020</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="container mx-auto my-16 p-8 bg-white rounded-xl shadow-lg animate-fade-in-left">
+        <h2 class="text-4xl font-bold text-center mb-10 text-gray-800">My Publications</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">"ROS Implementation for Untethered Microrobot Manipulation"</h3>
+                <p class="text-gray-700 text-sm mb-2"><strong>Authors:</strong> A. Kahveci,  N. Akçura, L. Çetin, A. Alasli & Ö. Tamer</p>
+                <p class="text-gray-700 text-sm mb-4"><strong>Published In:</strong> Springer, August 2020</p>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-030-45956-7_9" target="paper" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    View Paper <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">"Close-Loop Control of Microrobot Within a Constrained Environment Using Electromagnet Pairs"</h3>
+                <p class="text-gray-700 text-sm mb-2"><strong>Authors:</strong> N. Akçura, A. Kahveci, L. Çetin, A. Alasli, F. C. Can, E. Gezgin & Ö. Tamer</p>
+                <p class="text-gray-700 text-sm mb-4"><strong>Published In:</strong> Springer, August 2019</p>
+                <a href="https://link.springer.com/chapter/10.1007/978-3-030-26118-4_1" target="paper" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    View Paper <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">"Design and Development of a Surgical Robotic Hand with Hybrid Structure Design and Development of a Surgical Robotic Hand with Hybrid Structure"</h3>
+                <p class="text-gray-700 text-sm mb-2"><strong>Authors:</strong> M. V. Yazıcı, A. Kahveci, F. S. Kızıltaş, N. Mülayim & E. Gezgin</p>
+                <p class="text-gray-700 text-sm mb-4"><strong>Published In:</strong> TIPTEKNO18, December 2018</p>
+                <a href="https://ieeexplore.ieee.org/document/8597069" target="paper" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    View Paper <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">"Electromagnet design for untethered actuation system mounted on robotic manipulator"</h3>
+                <p class="text-gray-700 text-sm mb-2"><strong>Authors:</strong> A. Alasli, L. Çetin, N. Akçura, A. Kahveci, F. C. Can & Ö. Tamer</p>
+                <p class="text-gray-700 text-sm mb-4"><strong>Published In:</strong> Sensors and Actuators, December 2018</p>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/S0924424718312093" target="paper" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    View Paper <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+
+            <div class="p-6 bg-gray-50 rounded-xl shadow-md overflow-hidden hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">"Guided Motion Control Methodology for Microrobots"</h3>
+                <p class="text-gray-700 text-sm mb-2"><strong>Authors:</strong> N. Akçura, L. Çetin, A. Kahveci, A. Alasli, F. C. Can & Ö. Tamer</p>
+                <p class="text-gray-700 text-sm mb-4"><strong>Published In:</strong> CEIT 2018, October 2018</p>
+                <a href="https://ieeexplore.ieee.org/document/8751803" target="paper" class="text-indigo-600 hover:text-indigo-800 font-medium inline-flex items-center">
+                    View Paper <i class="fas fa-external-link-alt ml-2 text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mx-auto my-16 p-8 bg-gray-800 text-white rounded-xl shadow-lg animate-fade-in-down">
+        <h2 class="text-4xl font-bold text-center mb-10 text-white">Get in Touch</h2>
+        <p class="text-center text-lg mb-8">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+        <div class="flex flex-col items-center space-y-4">
+            <a href="mailto:aytackahveci93@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 inline-flex items-center">
+                <i class="fas fa-envelope mr-3"></i> aytackahveci93@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/ayta%C3%A7-kahveci/" target="linkedin" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 inline-flex items-center">
+                <i class="fab fa-linkedin mr-3"></i> LinkedIn Profile
+            </a>
+            <a href="https://github.com/AytacKahveci" target="github" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition duration-300 transform hover:scale-105 inline-flex items-center">
+                <i class="fab fa-github mr-3"></i> GitHub Profile
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 py-8 px-4 text-center">
+        <div class="container mx-auto">
+            <p>&copy; 2025 Aytaç Kahveci. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="https://www.linkedin.com/in/ayta%C3%A7-kahveci/" target="linkedin" class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/AytacKahveci" target="github" class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:aytackahveci93@gmail.com" class="text-gray-400 hover:text-white transition duration-300 text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Go to Top Button -->
+    <button id="go-to-top-btn" class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Project Modal Overlay -->
+    <div id="modal-overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"></div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="hidden fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white p-8 rounded-xl shadow-lg w-[90%] max-w-3xl max-h-[90vh] overflow-y-auto flex-col transition-opacity duration-300">
+        <div class="flex justify-between items-center mb-4">
+            <h3 id="modal-project-title" class="text-3xl font-bold text-gray-800"></h3>
+            <button id="modal-close-btn" class="text-gray-500 hover:text-gray-700 text-2xl leading-none">
+                &times; </button>
+        </div>
+        <div id="modal-project-content" class="text-lg text-gray-700 mb-4 flex-grow">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewProjectButtons = document.querySelectorAll('.view-project-btn');
+            const projectModal = document.getElementById('project-modal');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const modalProjectTitle = document.getElementById('modal-project-title');
+            const modalProjectContent = document.getElementById('modal-project-content');
+            const body = document.body;
+            const goToTopBtn = document.getElementById('go-to-top-btn');
+            const mainNavbar = document.getElementById('main-navbar');
+            let lastScrollTop = 0; // For tracking scroll direction
+  
+            // Mobile menu specific elements
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const navLinksContainer = document.getElementById('nav-links-container');
+  
+            // Function to open the modal with project details
+            const openModal = (card) => {
+                // Get content from the clicked card
+                const title = card.querySelector('.project-title').textContent;
+                const detailedContent = card.querySelector('.project-details-content');
+  
+                // Populate the modal
+                modalProjectTitle.textContent = title;
+                modalProjectContent.innerHTML = ''; // Clear previous content
+                // Clone the detailed content to move it to the modal
+                modalProjectContent.appendChild(detailedContent.cloneNode(true));
+                // Ensure the cloned content is visible within the modal
+                modalProjectContent.querySelector('.project-details-content').classList.remove('hidden');
+  
+                projectModal.classList.remove('hidden');
+                modalOverlay.classList.remove('hidden');
+                body.classList.add('overflow-hidden'); // Prevent background scrolling
+            };
+  
+            // Function to close the modal
+            const closeModal = () => {
+                projectModal.classList.add('hidden');
+                modalOverlay.classList.add('hidden');
+                body.classList.remove('overflow-hidden'); // Re-enable background scrolling
+                // Optionally clear modal content to prepare for next open
+                modalProjectTitle.textContent = '';
+                modalProjectContent.innerHTML = '';
+            };
+  
+            // Event listeners for "View Project" buttons
+            viewProjectButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent any default button action
+                    const card = e.target.closest('.project-card-item');
+                    if (card) {
+                        openModal(card);
+                    }
+                });
+            });
+  
+            // Event listener for modal close button
+            modalCloseBtn.addEventListener('click', closeModal);
+  
+            // Event listener for clicking outside the modal (on the overlay)
+            modalOverlay.addEventListener('click', closeModal);
+  
+            // Optional: Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                  if (e.key === 'Escape' && !projectModal.classList.contains('hidden')) {
+                      closeModal();
+                  }
+              });
+  
+              // Go to Top button functionality
+              window.addEventListener('scroll', () => {
+                  // Show/hide Go to Top button
+                  if (window.scrollY > 200) { // Show button after scrolling 200px
+                      goToTopBtn.classList.add('show');
+                  } else {
+                      goToTopBtn.classList.remove('show');
+                  }
+  
+                  // Navbar show/hide on scroll
+                  let currentScroll = window.scrollY;
+  
+                  // Only perform navbar show/hide if scrolling is significant enough to avoid flickering
+                  if (Math.abs(currentScroll - lastScrollTop) > 50) { // Adjust threshold as needed
+                      if (currentScroll > lastScrollTop && currentScroll > mainNavbar.offsetHeight) {
+                          // Scrolling down and past navbar height, hide it
+                          mainNavbar.classList.remove('navbar-visible');
+                          mainNavbar.classList.add('navbar-hidden');
+                      } else if (currentScroll < lastScrollTop) {
+                          // Scrolling up, show it
+                          mainNavbar.classList.remove('navbar-hidden');
+                          mainNavbar.classList.add('navbar-visible');
+                      }
+                  }
+                  lastScrollTop = currentScroll;
+              });
+  
+              goToTopBtn.addEventListener('click', () => {
+                  window.scrollTo({
+                      top: 0,
+                      behavior: 'smooth'
+                  });
+              });
+  
+              // Mobile menu toggle functionality
+              mobileMenuButton.addEventListener('click', () => {
+                  navLinksContainer.classList.toggle('hidden');
+                  navLinksContainer.classList.toggle('flex');
+                  navLinksContainer.classList.toggle('flex-col'); // Ensure it stacks vertically when open
+                  
+                  // Toggle hamburger icon to close icon
+                  if (navLinksContainer.classList.contains('flex')) {
+                      mobileMenuButton.querySelector('i').classList.remove('fa-bars');
+                      mobileMenuButton.querySelector('i').classList.add('fa-times');
+                  } else {
+                      mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                      mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                  }
+              });
+  
+              // Close mobile menu when a link is clicked
+              navLinksContainer.querySelectorAll('a').forEach(link => {
+                  link.addEventListener('click', () => {
+                      if (!navLinksContainer.classList.contains('hidden')) {
+                          navLinksContainer.classList.add('hidden');
+                          navLinksContainer.classList.remove('flex');
+                          navLinksContainer.classList.remove('flex-col');
+                          mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                          mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                      }
+                  });
+              });
+        });
+      </script>
+  
+
+</body>
+</html>
